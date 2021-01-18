@@ -60,6 +60,7 @@ app.put('/books/:id', async (req,res) =>{
     res.redirect('/books');
 })
 
+app.delete()
 app.listen(3000, function(){
     console.log("Server started on port 3000.");
 });
