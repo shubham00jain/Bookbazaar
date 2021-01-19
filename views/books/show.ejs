@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=book.title%> </title>
-</head>
-<body>
+<%-layout('layouts/boilerplate') %>
     <h1> <%=book.title %></h1>
     <ul>
         <li><h2>Price: <%=book.price%></h2></li>
@@ -14,5 +7,8 @@
         <li><h2>Year: <%=book.year%></h2></li>
         <li><h2>Genre: <%=book.genre%></h2></li>
     </ul>
+    <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
+    <button>Delete</button>
+    </form>
 </body>
 </html>

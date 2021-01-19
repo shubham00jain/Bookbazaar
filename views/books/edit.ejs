@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a book</title>
-</head>
-<body>
-    <form action="/books" method="POST">
+    <%- layout('layouts/boilerplate') %>
+    <h1>Edit a book</h1>
+    <form action="/books/<%=book._id%>?_method=PUT" method="POST">
         <div>
             <label for="title">Title: </label><br>
-            <input type="text" id="title" name="title"><br><br>
+            <input type="text" id="title" name="title" value="<%=book.title %>"><br><br>
         </div>
         <div>
             <label for="author">Author: </label><br>
@@ -17,7 +11,7 @@
         </div>
         <div>
             <label for="description">Description: </label><br>
-            <input type="text" id="description" name="description"><br><br>
+            <input type="text" id="description" name="description" value="<%=book.description %>"><br><br>
         </div>
         <div>
             <label for="genre">Genre: </label><br>
@@ -30,14 +24,11 @@
         </div>
         <div>
             <label for="price">Price: </label><br>
-            <input type="number" name="price" id="price"><br><br>
+            <input type="number" name="price" id="price" value="<%=book.price %>"><br><br>
         </div>
         <div>
             <label for="year">Year: </label><br>
-            <input type="number" name="year" id="year"><br><br>
+            <input type="number" name="year" id="year" value="<%=book.year %>"><br><br>
         </div>
-        <button>Add</button>
+        <button>Edit</button>
     </form>
-    
-</body>
-</html>

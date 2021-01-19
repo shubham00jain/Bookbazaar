@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override')
 
 const Book = require('./models/book');
@@ -18,18 +19,19 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.engine('ejs', ejsMate);
 
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 
 
 app.get("/", (req, res)=>{
-    res.render('index');
+    res.render('books/index');
 })
 
 app.get("/books", async (req,res) =>{
     const books = await Book.find({});
-    res.render('books', {books:books});
+    res.render('books/books', {books:books});
 })
 
 app.post("/books", async (req,res) =>{
@@ -39,19 +41,19 @@ app.post("/books", async (req,res) =>{
 });
 
 app.get('/books/new', (req,res) =>{
-    res.render('new');
+    res.render('books/new');
 });
 
 app.get("/books/:id", async (req,res) =>{
     const { id } = req.params;
     const book = await Book.findById(id);
-    res.render('show', {book:book});
+    res.render('books/show', {book:book});
 })
 
 app.get("/books/:id/edit", async (req,res) =>{
     const { id } = req.params;
     const book = await Book.findById(id);
-    res.render('edit', {book:book});
+    res.render('books/edit', {book:book});
 })
 
 app.put('/books/:id', async (req,res) =>{
@@ -60,7 +62,12 @@ app.put('/books/:id', async (req,res) =>{
     res.redirect('/books');
 })
 
-app.delete()
+app.delete('/books/:id', async (req, res) =>{
+    const id = req.params.id;
+    await Book.findByIdAndDelete(id);
+    res.redirect('/books');
+});
+
 app.listen(3000, function(){
     console.log("Server started on port 3000.");
 });
