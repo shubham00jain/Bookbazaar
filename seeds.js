@@ -21,7 +21,8 @@ const seedProducts = [
         price: 1999,
         year: 1999,
         description: "A book about good programming practices.",
-        genre: "Self help"
+        genre: "Self help",
+        image: '/images/pragmatic-programmer.jpg'
     },
     {
         title: "The Godfather", 
@@ -29,7 +30,8 @@ const seedProducts = [
         price: 182,
         year: 1969,
         description: "Mafia. Gangs. Wars. And obiously, Don Corleone.",
-        genre: "Fiction"
+        genre: "Fiction",
+        image: '/images/godfather.png'
     },
     {
         title: "Black Beauty", 
@@ -37,7 +39,8 @@ const seedProducts = [
         price: 179,
         year: 1877,
         description: "Live the life of a 18th century horse in this classic by Sewell.",
-        genre: "Fiction"
+        genre: "Fiction",
+        image: '/images/black-beauty.jpg'
     },
     {
         title: "A Study in Scarlet", 
@@ -45,7 +48,8 @@ const seedProducts = [
         price: 136,
         year: 1887,
         description: "It's elementary my dear Watson.",
-        genre: "Fiction"
+        genre: "Fiction",
+        image: '/images/study-in-scarlet.jpg'
     },
     {
         title: "The Da Vinci Code", 
@@ -53,7 +57,8 @@ const seedProducts = [
         price: 259,
         year: 2003,
         description: "Feel the thrill as Robert Langdon embarks on a new and exciting journey to uncover the secrets of the world.",
-        genre: "Fiction"
+        genre: "Fiction",
+        image: '/images/da-vinci.jpg'
     }
 ]
 

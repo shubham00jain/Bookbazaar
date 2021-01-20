@@ -23,6 +23,7 @@ app.engine('ejs', ejsMate);
 
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
+app.use(express.static("public"));
 
 
 app.get("/", (req, res)=>{
